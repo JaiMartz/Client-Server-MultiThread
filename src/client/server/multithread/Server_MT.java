@@ -16,19 +16,23 @@ import java.net.Socket;
 public class Server_MT {
     public static void main(String[] args) {
         try{
-        Socket client = null;
-        ServerSocket server = new ServerSocket(9090);
-        while(true){
-        try{
-        client = server.accept();
-        
-        
-        
-        
-        }catch(Exception e){
-        
-        }
-        }
+            System.out.println("SERVER APP\n");
+            Socket client = null;
+            ServerSocket server = new ServerSocket(9090);
+            Tarea task = null;
+
+            while(true){
+                try{
+                    client = server.accept();
+
+                    //Launch thread Tarea
+                    task = new Tarea(client);
+                    task.start();
+                    
+                }catch(Exception e){
+                    e.getStackTrace();
+                }
+            }
         }catch(IOException ioe){}
     }
 }

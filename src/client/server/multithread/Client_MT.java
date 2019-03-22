@@ -24,6 +24,7 @@ public class Client_MT {
         ObjectOutputStream oos=null;
         ObjectInputStream ois=null;
         Socket client=null;
+        System.out.println("CLIENT APP\n");
         try{
             try{
                 client = new Socket("127.0.0.1", 9090);
